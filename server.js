@@ -25,7 +25,7 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-// Wildcard route so when the path does not match it directs to indexx.html
+// Wildcard route so when the path does not match it directs to index.html
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 })
