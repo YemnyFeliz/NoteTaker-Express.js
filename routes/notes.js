@@ -7,9 +7,10 @@ notes.get('/', (req, res) =>
 );
 
 notes.post('/', (req, res) => {
+    console.log(req.body)
     const { title, text } = req.body;
 
-    if ( title, text ) {
+    if (req.body) {
         const newNotes = {
             id: uuidv4(),
             title: title,
