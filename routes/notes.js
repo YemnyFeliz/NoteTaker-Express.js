@@ -2,10 +2,12 @@ const notes = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile, readAndDelete } = require('../helpers/fsUtils');
 
+//Get all notes from db.json file
 notes.get('/', (req, res) =>
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
+//Create notes with unique ID and are stored in db.json
 notes.post('/', (req, res) => {
     console.log(req.body)
     const { title, text } = req.body;
@@ -25,6 +27,7 @@ notes.post('/', (req, res) => {
     }
 });
 
+//Delete notes
 notes.delete('/:id', (req, res) => {
     const { id } = req.params;
 
